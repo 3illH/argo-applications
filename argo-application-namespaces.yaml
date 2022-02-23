@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespaces
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/3illH/k8s-namespaces
+    path: kustomize
+    targetRevision: HEAD
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated: {}

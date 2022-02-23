@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: starboard-cli
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/3illH/starboard-operator-cli-cronjob.git
+    path: cli-cronjob/kustomize
+    targetRevision: HEAD
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated: {}
