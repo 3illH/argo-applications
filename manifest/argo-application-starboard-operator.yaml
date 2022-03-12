@@ -14,6 +14,8 @@ spec:
       parameters:
         - name: targetNamespaces
           value: "dev"
+        - name: operator.vulnerabilityScannerScanOnlyCurrentRevisions
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: starboard-system
